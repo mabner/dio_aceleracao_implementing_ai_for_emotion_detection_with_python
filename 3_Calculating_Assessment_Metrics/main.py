@@ -16,19 +16,26 @@ def best_performance(matrices):
     # TODO: Define Loop through each matrix to calculate metrics
     for index, matrix in enumerate(matrices):
         # TODO: Define tp, fp fn and tn
-        tp, fp, fn, tn = [i.split(",") for i in matrix]
+        tp, fp, fn, tn = matrix
+        tp = float(tp)
+        fp = float(fp)
+        fn = float(fn)
+        tn = float(tn)
 
-        # print(f"Index:{index}, Matrix:{matrix}")
         # TODO: Calculate accuracy and precision
+        accuracy = (tp + tn) / (tp + fp + fn + tn)
+        precision = tp / (tp + fp)
 
         # TODO: Update best metrics if found
+        print(f"Index:{index+1}, Accuracy: {accuracy:.2f}, Precision: {precision:.2f}, "
+              f"Combined: {(accuracy + precision):.2f}")
 
     return best_index, best_accuracy, best_precision
 
 
 # Print the results
 best_performance(matrices)
-
+print("-----------")
 """Sample data:
 4
 70,15,8,78
@@ -37,7 +44,7 @@ best_performance(matrices)
 80,7,15,98
 
 Return:
-Index: 1
-Accuracy: 1.0
-Precision: 1.0
+Index: 3
+Accuracy: 0.94
+Precision: 0.9
 """
