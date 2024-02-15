@@ -16,7 +16,9 @@ def best_performance(matrices):
     # TODO: Define Loop through each matrix to calculate metrics
     for index, matrix in enumerate(matrices):
         # TODO: Define tp, fp fn and tn
+        tp, fp, fn, tn = [i.split(",") for i in matrix]
 
+        # print(f"Index:{index}, Matrix:{matrix}")
         # TODO: Calculate accuracy and precision
 
         # TODO: Update best metrics if found
